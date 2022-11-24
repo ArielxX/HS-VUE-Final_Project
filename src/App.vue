@@ -1,18 +1,18 @@
-<script setup>
-import { ref, computed, watch } from "vue";
-import Animes from "./components/Animes.vue";
-</script>
-
 <template>
-  <Suspense>
-    <Animes />
-    <template #fallback>
-      <div>
-        <img src="/loading.gif" />
-        <h3>Loading</h3>
-      </div>
-    </template>
-  </Suspense>
+  <header>
+    <router-link class="plain-link" to="/">Home</router-link> |
+    <router-link class="plain-link" to="/animes">Animes</router-link> |
+  </header>
+  <hr />
+  <main>
+    <router-view />
+  </main>
+  <footer>My nice footer | Ariel Cruz 2022</footer>
 </template>
 
-<style scoped></style>
+<style scoped>
+.plain-link {
+  color: darkslategray;
+  text-decoration: none;
+}
+</style>

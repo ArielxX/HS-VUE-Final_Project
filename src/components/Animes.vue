@@ -7,12 +7,16 @@ const animesList = ref({});
 const itemsPerPage = ref(5);
 const yearSelected = ref("");
 const genresSelected = ref([]);
-const filterTitle = ref("Piece");
+const filterTitle = ref("");
+const sortBy = ref("mal_id");
+const sort = ref(0);
 
 try {
   let URL = "https://api.jikan.moe/v4/anime?limit=" + itemsPerPage.value;
   URL += "&genres=" + genresSelected.value;
   URL += "&q=" + filterTitle.value;
+  URL += "&order_by=" + sortBy.value;
+  URL += "&sort=" + (sort.value === 0 ? "asc" : "desc");
   if (yearSelected.value != "") URL += "&start_date=" + yearSelected.value;
   const animes = await fetch(URL);
   animesList.value = await animes.json();
