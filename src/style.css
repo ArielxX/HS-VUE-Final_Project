@@ -53,6 +53,9 @@ main {
   min-height: 650px;
   background-image: url("/animes.jpg");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button {

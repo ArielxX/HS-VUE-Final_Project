@@ -1,12 +1,6 @@
 <script setup>
-import { ref } from "vue";
-import router from "../router";
-
-const { animesList } = defineProps({
-  animesList: {
-    type: Array,
-    required: true,
-  },
+const props = defineProps({
+  animesList: {},
 });
 </script>
 
@@ -16,25 +10,30 @@ const { animesList } = defineProps({
       <caption></caption>
       <thead>
         <tr>
-          <th></th>
+          <th width="40px"></th>
           <th>Title</th>
           <th width="100px">Year</th>
           <th width="200px">Status</th>
+          <th width="200px">Type</th>
           <th width="200px">Genres</th>
+          <th width="220px">Rating</th>
           <th width="100px">Score</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="anime in animesList" :key="anime.mal_id">
+        <tr v-for="anime in animesList.data" :key="anime.mal_id">
           <td>
             <img class="table-icons" :src="anime.images.jpg.small_image_url" />
           </td>
           <td>
             <router-link
-              class="anime-link"
               :to="{ name: 'animePage', params: { id: anime.mal_id } }"
             >
-              {{ anime.title || "------" }}
+              <div class="anime-link">
+                <p>
+                  {{ anime.title || "------" }}
+                </p>
+              </div>
             </router-link>
           </td>
           <td>
@@ -44,7 +43,13 @@ const { animesList } = defineProps({
             {{ anime.status || "------" }}
           </td>
           <td>
+            {{ anime.type || "------" }}
+          </td>
+          <td>
             <span v-for="genre in anime.genres">{{ genre.name }}<br /></span>
+          </td>
+          <td>
+            {{ anime.rating || "------" }}
           </td>
           <td>
             {{ anime.score || "------" }}
@@ -86,6 +91,10 @@ table {
 }
 .table-concept table tr * {
   color: black;
+}
+.table-concept table tr p {
+  color: rgb(37, 37, 80);
+  font-weight: bold;
 }
 .table-concept table tr th {
   color: #ffffff;

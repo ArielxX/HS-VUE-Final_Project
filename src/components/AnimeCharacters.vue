@@ -16,9 +16,9 @@ const props = defineProps({
             <img :src="anime.images.jpg.image_url" />
           </div>
           <div class="anime_basics">
-            <h2 class="anime-card__title">
+            <h1 class="anime-card__title">
               {{ anime.title }}
-            </h2>
+            </h1>
 
             <div class="anime-card__score">
               Score:
@@ -40,6 +40,7 @@ const props = defineProps({
 
 <style>
 * {
+  color: black;
   font-size: 15px;
 }
 .anime-card {
@@ -61,7 +62,6 @@ const props = defineProps({
   background: linear-gradient(to right, white, rgb(104, 25, 8));
   -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-  color: black;
 }
 li {
   display: inline-block;
