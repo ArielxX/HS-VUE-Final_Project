@@ -1,13 +1,13 @@
 <script setup>
 import { ref } from "vue";
+import router from "../router";
+
 const { animesList } = defineProps({
   animesList: {
     type: Array,
     required: true,
   },
 });
-
-console.log(animesList);
 </script>
 
 <template>
@@ -30,7 +30,12 @@ console.log(animesList);
             <img class="table-icons" :src="anime.images.jpg.small_image_url" />
           </td>
           <td>
-            {{ anime.title || "------" }}
+            <router-link
+              class="anime-link"
+              :to="{ name: 'animePage', params: { id: anime.mal_id } }"
+            >
+              {{ anime.title || "------" }}
+            </router-link>
           </td>
           <td>
             {{ anime.year || "------" }}

@@ -44,12 +44,17 @@ footer * {
 .header-menu * {
   margin-left: 40px;
   margin-right: 40px;
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 main {
   background: rgb(199, 149, 98);
   min-height: 650px;
+  background-image: url("/animes.jpg");
+  background-size: cover;
 }
+
 button {
   padding: 4px 12px;
   margin-bottom: 20px;
@@ -122,8 +127,11 @@ a:hover {
 }
 
 h1 {
+  color: rgb(55, 42, 94);
+  -webkit-text-stroke: 1.2px white;
   font-size: 3.2em;
   line-height: 1.1;
+  font-weight: bolder;
 }
 
 button {
