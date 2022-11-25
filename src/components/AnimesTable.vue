@@ -61,7 +61,8 @@ td {
 }
 
 table {
-  background-color: #ffffff;
+  background-color: #baafd5;
+  opacity: 90%;
   font-size: 16px;
   border-collapse: collapse;
 }

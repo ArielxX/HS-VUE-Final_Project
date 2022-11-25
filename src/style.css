@@ -1,3 +1,100 @@
+html {
+  background: rgb(199, 149, 98);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  width: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background: rgb(199, 149, 98);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header,
+footer {
+  height: 60px;
+  background-color: #481a08;
+  color: whitesmoke;
+  opacity: 50%;
+}
+
+header,
+footer * {
+  /* margin: 20px 10px; */
+  font-size: 20px;
+  text-align: left;
+}
+
+.header-menu {
+  padding: 15px 50px;
+}
+
+.header-menu * {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+main {
+  background: rgb(199, 149, 98);
+  min-height: 650px;
+}
+button {
+  padding: 4px 12px;
+  margin-bottom: 20px;
+  background: white;
+  font-size: 14px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.container {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 32px;
+  margin: 20px;
+  min-height: 350px;
+}
+
+.async-component {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 15px;
+}
+
+.loaded {
+  background: rgba(0, 255, 100, 0.2);
+  border-color: rgb(0, 255, 100);
+}
+
+.errored {
+  height: 258px;
+  background: rgba(255, 0, 100, 0.2);
+  border-color: rgb(255, 0, 100);
+  color: white;
+}
+
+.scroll {
+  height: 200px;
+  min-height: 200px;
+  overflow: scroll;
+  padding: 10px;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -17,28 +114,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #646cff; */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* color: #535bf2; */
 }
 
 h1 {
@@ -69,16 +149,9 @@ button:focus-visible {
   padding: 2em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    /* color: #213547; */
     background-color: #ffffff;
   }
   a:hover {

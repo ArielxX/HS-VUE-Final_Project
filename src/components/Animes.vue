@@ -64,4 +64,9 @@ function filterByTitle(movie) {
   <AnimesTable :animesList="animesList.data" />
 </template>
 
-<style></style>
+<style>
+h1 {
+  color: rgb(25, 10, 71);
+  -webkit-text-stroke: 0.8px #fff;
+}
+</style>
