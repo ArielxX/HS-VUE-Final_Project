@@ -2,7 +2,7 @@
   <div class="landing-page">
     <h1>Let's watch some cool animes</h1>
     <router-link :to="{ name: 'animes' }">
-      <button>Search</button>
+      <button class="home-button">Search</button>
     </router-link>
   </div>
 </template>
@@ -12,7 +12,7 @@
   font-size: 38px;
   padding-bottom: 150px;
 }
-button {
+.home-button {
   background-color: rgb(196, 74, 26);
   font-size: 30px;
   color: rgb(185, 177, 193);

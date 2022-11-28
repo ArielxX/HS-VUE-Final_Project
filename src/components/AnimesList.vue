@@ -26,18 +26,16 @@ async function fetchList() {
     URL += "&page=" + page.value;
     URL += "&genres=" + Array.from(props.genresSelected.values());
     URL += "&letter=" + props.filterTitle;
-    URL += "&score=8.6";
     URL += "&status=" + props.filterStatus;
-    URL += "&rating=" + props.filterRating;
-    URL += "&score=" + props.minimumScore;
     URL += "&order_by=" + props.sortBy;
     URL += "&sort=" + (props.sort === true ? "asc" : "desc");
+    if (props.minimumScore != "") URL += "&score=" + props.minimumScore;
+    if (props.filterRating != "") URL += "&rating=" + props.filterRating;
     if (props.yearFrom != "") URL += "&start_date=" + props.yearFrom;
     if (props.yearTo != "") URL += "&end_date=" + props.yearTo;
     const animes = await fetch(URL);
     animesList.value = await animes.json();
     totalPages.value = animesList.value.pagination.last_visible_page;
-    page.value = 1;
   } catch (error) {
     animesList.value = {
       answer: "Error! Could not reach the API. " + error,
@@ -60,8 +58,15 @@ watch(
     props.minimumScore,
     props.sortBy,
     props.sort,
-    page.value,
   ],
+  () => {
+    page.value = 1;
+    fetchList();
+  }
+);
+
+watch(
+  () => [page.value],
   () => {
     fetchList();
   }
