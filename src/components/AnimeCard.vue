@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import ratingStar from "./RatingStar.vue";
 
 const props = defineProps({
@@ -23,9 +22,13 @@ const props = defineProps({
             <div class="anime-card__score">
               Score:
               <ratingStar :score="Number(anime.score)"></ratingStar>
-              {{ anime.score }} / 10
+              {{ anime.score }} / 10 &nbsp (🗳 {{ anime.scored_by }})
             </div>
-            <p class="anime-card__year">Year: {{ anime.year }}</p>
+            <p>Rating: {{ anime.rating }}</p>
+            <p class="anime-card__year">
+              Type: {{ anime.type }} &nbsp &nbsp &nbsp &nbsp Year:
+              {{ anime.year || "-----" }}
+            </p>
           </div>
         </div>
 
@@ -72,8 +75,8 @@ li {
   margin: 10px;
 }
 .anime-card__desc {
-  font-size: 10px;
-  margin-top: 30px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 .column {
   flex: 70%;
