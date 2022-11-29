@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import AnimeCard from "./AnimeCard.vue";
 import DetailsCards from "./DetailsCards.vue";
+import AnimeCharacters from "./AnimeCharacters.vue";
 
 const { id } = defineProps(["id"]);
 
@@ -31,11 +32,14 @@ try {
         <AnimeCard :anime="anime.data"></AnimeCard>
       </div>
     </center>
-    <div class="container">
+    <div v-if="anime.data.trailer.url" class="container">
       <h1>Watch Trailer</h1>
       <a :href="anime.data.trailer.url">
         <img :src="anime.data.trailer.images.large_image_url"
       /></a>
+    </div>
+    <div class="container">
+      <AnimeCharacters :characters="characters.data"></AnimeCharacters>
     </div>
     <div class="container anime-info">
       <div class="container">
@@ -48,24 +52,34 @@ try {
             Favorites: {{ anime.data.favorites }} 🧡
           </p>
         </div>
-        <h2>Genres</h2>
-        <DetailsCards :elements="anime.data.genres"></DetailsCards>
+        <div v-if="anime.data.genres && anime.data.genres.length > 0">
+          <h2>Genres</h2>
+          <DetailsCards :elements="anime.data.genres"></DetailsCards>
+        </div>
 
-        <h2>Themes</h2>
-        <DetailsCards :elements="anime.data.themes"></DetailsCards>
+        <div v-if="anime.data.themes && anime.data.themes.length > 0">
+          <h2>Themes</h2>
+          <DetailsCards :elements="anime.data.themes"></DetailsCards>
+        </div>
 
-        <h2>Studios</h2>
-        <DetailsCards :elements="anime.data.studios"></DetailsCards>
+        <div v-if="anime.data.studios && anime.data.studios.length > 0">
+          <h2>Studios</h2>
+          <DetailsCards :elements="anime.data.studios"></DetailsCards>
+        </div>
       </div>
       <div v-if="anime.data.background" class="container">
         <h2>Background:</h2>
         {{ anime.data.background }}
       </div>
       <div class="container">
-        <h2>External Links</h2>
-        <DetailsCards :elements="anime.data.external"></DetailsCards>
-        <h2>Streaming</h2>
-        <DetailsCards :elements="anime.data.streaming"></DetailsCards>
+        <div v-if="anime.data.external && anime.data.external.length > 0">
+          <h2>External Links</h2>
+          <DetailsCards :elements="anime.data.external"></DetailsCards>
+        </div>
+        <div v-if="anime.data.streaming && anime.data.streaming.length > 0">
+          <h2>Streaming</h2>
+          <DetailsCards :elements="anime.data.streaming"></DetailsCards>
+        </div>
       </div>
     </div>
   </div>
